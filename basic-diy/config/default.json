@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://nikhom123:meemee@cluster0-7ll9a.gcp.mongodb.net/event-react-dev?retryWrites=true",
+    "jwtSecret":"sl_myJwtSecret"
+ }

@@ -1,0 +1,27 @@
+config
+models
+    User(email,password,createEvent[Event])
+    Event(title,description,price,date,creator(User))
+app.js (mongo.connect,bodyParser)
+    '/grapql'
+        schema{
+            query:RootQuery_Type
+                events:[Event_Type]
+                users:[User_Type]
+            mutation:RootMutation_Type
+                createEvent(event_Input:EventInput_Type):Event_Type
+                createUser(user_Input:UserInput_Type):User_Type
+        }
+
+
+        type Event_Type {_id,title,description,price,date,cerator(User)}
+        type User_Type {_id,email,password,createEvennts[Events]}
+        
+        input EventInput_Type {title,description,price,date}
+        input UserInput_Type {email,password}
+
+        resovle
+            events
+            createEvent
+            users
+            createUser
