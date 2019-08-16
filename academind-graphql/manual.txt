@@ -1,0 +1,49 @@
+app.js 
+    mogo.connect
+        listen
+
+    (bodyParser,cross origin,isAuth)
+    isAuth (req.isAuth = true,req.userId)
+    uploadImage ??????
+    '/graphql'
+        
+        models
+            bookings(event,user,timestapms) 
+            event(title,description,price,date,creator(user))
+            user(email,password,createEvent(event))
+        schema
+            input
+                EventInput {title,description,price,date}
+                UserInput {email,password}
+            type
+                Event {_id,title,description,price,date,creator}
+                User {_id,email,password,createEvents[Event]
+                Booking {_id,Event,User,creatAt,updateAt}
+                AuthData {userId,token,tokenExpiration}
+                RootQuery{
+                    events:[Event],
+                    bookings:[Booking],
+                    login(email,password):AuthData
+                }
+                RootMutation{
+                    createEvent(eventInput):Event
+                    createUser(userInput):User
+                    bookEvent(eventId):Booking
+                    cancelBooking(bookingId):Event
+                }
+            schema
+                query:RootQuery
+                mutation:RootMutation
+
+        resolvers
+            auth.js
+                createUser: 
+                login:
+            bookings.js
+                bookings:
+                bookEvent:
+                cancelBook:
+            events.js
+                events:
+                createEvent:
+                
